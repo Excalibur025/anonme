@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#This is a script to scramble mac address and connect to VPN.
+
+now="$(date)"
+host="$(hostname)"
+#When migrating to a new machine, You'll need to change the network hardware.
+#Find the device with $ifconfig. You're looking for enpXsY.
+	sudo macchanger -r enp3s0
+	sudo windscribe connect 'vice'
+	windscribe status
+echo "Firewall:"
+#sleep 2s
+#The firewall config was giving us connectivity issues, so we're removing the port filtering.
+	#sudo ufw deny 22
+	sudo ufw status
+sleep 1s
+cowsay "The hunt is on, $host!"
+
+
