@@ -7,7 +7,12 @@ host="$(hostname)"
 #When migrating to a new machine, You'll need to change the network hardware.
 #Find the device with $ifconfig. You're looking for enpXsY.
 	sudo macchanger -r enp3s0
-	sudo windscribe connect 'vice'
+echo "where are we going?"
+	read location
+#ask server location, defines var location
+echo "Sounds good."
+#plug in var
+	sudo windscribe connect $location
 	windscribe status
 echo "Firewall:"
 #sleep 2s
@@ -15,6 +20,6 @@ echo "Firewall:"
 	#sudo ufw deny 22
 	sudo ufw status
 sleep 1s
-cowsay "The hunt is on, $host!"
+cowsay " It's currently $now. The hunt is on, $host!"
 
 
